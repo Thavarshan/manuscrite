@@ -12,13 +12,13 @@ class IndexerTest extends TestCase
         $indexer = new Indexer();
 
         $this->assertEquals([
-            'blaze' => [
+            'Blaze' => [
                 'Installation' => [
                     'category' => 'blaze',
                     'page' => 'installation',
                 ],
             ],
-            'scorch' => [
+            'Scorch' => [
                 'Authentication' => [
                     'category' => 'scorch',
                     'page' => 'authentication',
