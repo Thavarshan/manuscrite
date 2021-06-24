@@ -1,17 +1,17 @@
 <template>
     <app-layout>
-        <div class="markdown lg:max-w-3xl">
-            <div v-html="content"></div>
-        </div>
+        <markdown-section :content="content"></markdown-section>
     </app-layout>
 </template>
 
 <script>
 import AppLayout from '@/Views/Layouts/AppLayout';
+import MarkdownSection from '@/Views/Components/Sections/MarkdownSection';
 
 export default {
     components: {
-        AppLayout
+        AppLayout,
+        MarkdownSection
     },
 
     props: {

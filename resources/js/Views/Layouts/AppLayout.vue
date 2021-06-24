@@ -36,10 +36,6 @@
                     <div class="md:col-span-8">
                         <slot></slot>
                     </div>
-
-                    <div class="md:col-span-2">
-                        <!-- On this page -->
-                    </div>
                 </div>
             </div>
         </main>

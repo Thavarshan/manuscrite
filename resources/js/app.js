@@ -7,6 +7,7 @@ import {
 } from '@inertiajs/inertia-vue3';
 
 import { diffForHumans, simple, expanded } from './Plugins/moment';
+import { highlightCode } from './Plugins/prism';
 import { InertiaProgress } from '@inertiajs/progress';
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -31,8 +32,8 @@ createApp({
             config,
             diffForHumans,
             simple,
-            expanded
-        }
+            expanded,
+        },
     })
     .use(InertiaPlugin)
     .mount(app);

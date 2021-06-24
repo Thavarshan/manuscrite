@@ -19,20 +19,22 @@
         "@vue/compiler-sfc": "^3.1.1",
         "autoprefixer": "^10.2.6",
         "axios": "^0.21",
+        "babel-plugin-prismjs": "^2.0.1",
         "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "^2.3.0",
+        "docsearch.js": "^2.6.3",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "moment": "^2.29.1",
         "postcss": "^8.1.14",
         "postcss-import": "^14.0.2",
+        "prism-themes": "^1.7.0",
+        "prismjs": "^1.23.0",
+        "sass": "^1.35.1",
+        "sass-loader": "^12.1.0",
         "simplebar": "^5.3.4",
         "tailwindcss": "^2.2.2",
         "vue": "^3.0.11",
-        "vue-loader": "^16.2.0",
-        "docsearch.js": "^2.6.3",
-        "highlight.js": "^10.5.0",
-        "sass": "^1.32.5",
-        "sass-loader": "^10.1.1"
+        "vue-loader": "^16.2.0"
     }
 }

@@ -33,7 +33,9 @@ class Indexer
                 ];
             }
 
-            $links[$directory->getFilenameWithoutExtension()] = $files;
+            $links[Str::ucfirst(
+                $directory->getFilenameWithoutExtension()
+            )] = $files;
         }
 
         return $links;

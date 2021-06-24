@@ -13,7 +13,7 @@
         <!-- Scripts -->
         @routes
     </head>
-    <body class="font-sans antialiased leading-normal bg-white text-gray-600">
+    <body class="language-php language-javascript font-sans antialiased leading-normal bg-white text-gray-600">
         @inertia
     </body>
 

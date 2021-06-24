@@ -1,19 +1,17 @@
 <template>
     <app-layout>
-        <div class="markdown w-full">
-            <div v-html="content"></div>
-        </div>
+        <markdown-section :content="content"></markdown-section>
     </app-layout>
 </template>
 
 <script>
 import AppLayout from '@/Views/Layouts/AppLayout';
-import AppLink from '@/Views/Components/Base/Link';
+import MarkdownSection from '@/Views/Components/Sections/MarkdownSection';
 
 export default {
     components: {
         AppLayout,
-        AppLink
+        MarkdownSection
     },
 
     props: {

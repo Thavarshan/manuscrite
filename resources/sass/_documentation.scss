@@ -22,22 +22,10 @@
 
     code {
         @apply bg-gray-300;
-        @apply px-2;
+        @apply px-3;
         @apply py-px;
-        @apply rounded;
+        @apply rounded-xl;
         @apply text-sm;
-    }
-
-    codehljs {
-        @apply bg-transparent;
-        @apply p-0;
-
-        hljs-comment,
-        hljs-keyword,
-        hljs-meta {
-            @apply font-normal;
-            @apply not-italic;
-        }
     }
 
     h1,
@@ -123,7 +111,7 @@
         @apply my-6;
         @apply overflow-x-auto;
         @apply p-4;
-        @apply rounded;
+        @apply rounded-xl;
         @apply shadow;
         @apply text-base;
 
