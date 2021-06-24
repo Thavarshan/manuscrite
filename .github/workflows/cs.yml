@@ -1,0 +1,35 @@
+name: Code Sniffer
+
+on:
+  push:
+    branches:
+      - main
+      - development
+      - feature/**
+  pull_request:
+    branches:
+      - main
+      - development
+      - feature/**
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['8.0']
+        dependency-stability: [prefer-stable]
+
+    name: PHP ${{ matrix.php-versions }} - ${{ matrix.dependency-stability }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Execute Code Sniffer via phpcs
+      run: |
+        composer require --dev squizlabs/php_codesniffer
+        vendor/bin/phpcs --standard=PSR12 app

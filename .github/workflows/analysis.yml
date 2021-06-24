@@ -1,0 +1,38 @@
+name: Static Code Analysis
+
+on:
+  push:
+    branches:
+      - main
+      - development
+      - feature/**
+  pull_request:
+    branches:
+      - main
+      - development
+      - feature/**
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['8.0']
+        dependency-stability: [prefer-stable]
+
+    name: PHP ${{ matrix.php-versions }} - ${{ matrix.dependency-stability }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Execute Code Static Analysis (PSALM)
+      run: |
+        composer require --dev vimeo/psalm
+        ./vendor/bin/psalm --init
+        composer require --dev psalm/plugin-laravel
+        ./vendor/bin/psalm-plugin enable psalm/plugin-laravel
+        vendor/bin/psalm
