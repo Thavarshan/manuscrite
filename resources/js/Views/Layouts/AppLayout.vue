@@ -28,7 +28,19 @@
         <!-- Main Content Area -->
         <main class="py-8" role="main">
             <div class="container mx-auto px-4 sm:px-6">
-                <slot></slot>
+                <div class="md:grid md:grid-cols-12 md:gap-6">
+                    <div class="md:col-span-2">
+                        <sidebar :links="$page.props.links"></sidebar>
+                    </div>
+
+                    <div class="md:col-span-8">
+                        <slot></slot>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <!-- On this page -->
+                    </div>
+                </div>
             </div>
         </main>
 
@@ -46,13 +58,13 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Logo from '@/Views/Components/Logos/Logo';
 import Navbar from '@/Views/Components/Navbars/Navbar';
 import NavbarLink from '@/Views/Components/Navbars/NavbarLink';
 import Dropdown from '@/Views/Components/Dropdowns/Dropdown';
 import DropdownLink from '@/Views/Components/Dropdowns/DropdownLink';
 import Banner from '@/Views/Components/Banners/Banner';
+import Sidebar from '@/Views/Components/Sidebar/Sidebar';
 
 export default {
     components: {
@@ -62,6 +74,7 @@ export default {
         Dropdown,
         DropdownLink,
         Banner,
+        Sidebar,
     },
 
     data() {

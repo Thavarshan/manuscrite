@@ -3,6 +3,7 @@
 namespace App\Documents;
 
 use Illuminate\Support\Arr;
+use App\Documents\Traits\HasPath;
 use App\Contracts\Documents\Document;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Contracts\Cache\Repository as Cache;
@@ -11,6 +12,7 @@ use App\Contracts\Documents\Documentator as DocumentatorContract;
 
 class Documentator implements DocumentatorContract
 {
+    use HasPath;
     use InteractsWithContainer;
 
     /**
@@ -81,6 +83,8 @@ class Documentator implements DocumentatorContract
      */
     public function find(string $document): ?string
     {
+        $document = $document . '.md';
+
         return Arr::first([
             $this->docPath($this->getLocalName($document)),
             $this->docPath($document),
@@ -115,17 +119,5 @@ class Documentator implements DocumentatorContract
             '.' . $this->resolve()->getLocale() . '$1',
             $name
         );
-    }
-
-    /**
-     * Get the path to the resources directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    public function docPath(string $path = ''): string
-    {
-        return $this->resolve('path.docs') . ($path ? \DIRECTORY_SEPARATOR . $path : $path) . '.md';
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <div class="markdown lg:max-w-3xl">
+        <div class="markdown w-full">
             <div v-html="content"></div>
         </div>
     </app-layout>
